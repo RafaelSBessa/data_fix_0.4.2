@@ -3,7 +3,7 @@
 
 We just became aware of a bug in the GUI that could have affected the timestamps on saved data in some cases. The bug has now been fixed in the just released version 0.4.2.1, and if you are affected you can update your software now. We also posted methods and a script that can be used to correct existing data that has been affected on https://github.com/open-ephys/data_fix_0.4.2
 
-(this announcement& bugfix relate to issue [#154](https://github.com/open-ephys/plugin-GUI/issues/154))
+(this announcement& bugfix relate to issue #154)
 
 __Who is affected:__
 This bug affects only the .continuous open ephys binary format, only when non-consecutive subsets of channels are saved using the channel selection panel of a processor in version 0.4.2 or earlier. For cases where the channel remapper is used to throw away unused data, and consecutive channels are saved sequentially later in the processing chain, there should not be an issue. Also, when using the "Use separate files" record option (accessible via the "R" button next to the record format selector), which creates different files for each recording, the bug does not apply.
@@ -23,14 +23,14 @@ Example of affected timestamps, plotted is diff(timestaps).
 __How to handle existing corrupted data:__
 For the corrupted record issue, we posted a script in https://github.com/open-ephys/data_fix_0.4.2 that should be able to correct data files by fixing the invalid record sizes. This script only corrects the structure of the data format, and does not affect the possibly affected timestamps.
 
-For the time stamp jitter issue, the simplest fix is to disregard the affected timestamps, and to just make new ones from the sample rate and sample numbers. Alternatively, if testing the timestamps reveals a channel with timetsmps that are not affected, using these timetstamps for all channels will also work. 
+For the time stamp jitter issue, the simplest fix is to disregard the affected timestamps, and to just make new ones from the sample rate and sample numbers. Alternatively, if testing the timestamps reveals a channel with timetsmps that are not affected, using these timestamps for all channels will also work. 
 
 For cases where multiple recordings are combined into single files, the situation is somewhat more complicated because the timestamps in the first record of the sub-recordings could be jittered. In these cases, the messages.events file can be used to find the time that each recordings starts:
 
-    0 Software time: 145610@1000000Hz    
-    0 Processor: 101 start time: 0@30000Hz
+0 Software time: 145610@1000000Hz
+0 Processor: 101 start time: 0@30000Hz
 
-We recommend that you check your data and make sure that your analysis is not affected. If you have questions, do get in touch via the message board or github.
+We recommend that you check your data and make sure that your analysis is not affected. If you have questions, do get in touch via our message board (open-ephys@googlegroups.com) or the GitHub [Issues](https://github.com/open-ephys/plugin-GUI/issues) page.
 
 
 
