@@ -12,11 +12,13 @@ __What kind of data corruption is expected:__
 The bug manifests in two ways. 1 - There is occasional jitter in the saved time stamps, manifesting as gaps and jumps in the data. 2 - In some cases, data records might get corrupted in a way that leads to a "found corrupted record" error, with the load_open_ephys_faster matlab function.
 
 ![Example of affected data](https://raw.githubusercontent.com/open-ephys/data_fix_0.4.2/master/example_issue_data.png)
+Example of affected data, plotted as timestamps vs. Voltage - jumps are apparent.
 
 __How to test if you're affected:__
 Even if you don't get a "found corrupted record" error, your data might be affected. Plot the derivative of the timestamps, and check if there are jumps. If you're in the affected group, but dont see errors, we recommend updating the GUI just in case.
 
 ![Example of affected timestamps](https://raw.githubusercontent.com/open-ephys/data_fix_0.4.2/master/example_issue_timestamps.png)
+Example of affected timestamps, plotted is diff(timestaps).
 
 __How to handle existing corrupted data:__
 For the corrupted record issue, we posted a script in https://github.com/open-ephys/data_fix_0.4.2 that should be able to correct data files by fixing the invalid record sizes. This script only corrects the structure of the data format, and does not affect the possibly affected timestamps.
