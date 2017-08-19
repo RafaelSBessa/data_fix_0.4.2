@@ -27,8 +27,8 @@ For the time stamp jitter issue, the simplest fix is to disregard the affected t
 
 For cases where multiple recordings are combined into single files, the situation is somewhat more complicated because the timestamps in the first record of the sub-recordings could be jittered. In these cases, the messages.events file can be used to find the time that each recordings starts:
 
-0 Software time: 145610@1000000Hz
-0 Processor: 101 start time: 0@30000Hz
+    0 Software time: 145610@1000000Hz
+    0 Processor: 101 start time: 0@30000Hz
 
 We recommend that you check your data and make sure that your analysis is not affected. If you have questions, do get in touch via our message board (open-ephys@googlegroups.com) or the GitHub [Issues](https://github.com/open-ephys/plugin-GUI/issues) page.
 
